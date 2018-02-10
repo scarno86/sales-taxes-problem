@@ -2,17 +2,18 @@ package org.difranca.salestaxes.model.shopping.receipt;
 
 
 import java.math.BigDecimal;
-
-import org.difranca.salestaxes.model.shopping.ShoppingIBasketItem;
+import org.difranca.salestaxes.model.shopping.ShoppingBasketItem;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class ReceiptItem {
 
+	private ShoppingBasketItem itemBasket;
 	
-	private ShoppingIBasketItem itemBasket;
+	private BigDecimal salesTax;
 	
-	private BigDecimal totalPrice;
 }

@@ -1,4 +1,4 @@
-package org.difranca.salestaxes.services;
+package org.difranca.salestaxes.services.receipt;
 
 import org.difranca.salestaxes.model.shopping.ShoppingBasket;
 import org.difranca.salestaxes.model.shopping.receipt.Receipt;

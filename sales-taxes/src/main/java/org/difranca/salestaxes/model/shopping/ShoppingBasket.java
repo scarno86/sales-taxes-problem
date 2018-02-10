@@ -12,6 +12,6 @@ public class ShoppingBasket {
 	
 	private String description;
 	
-	private List<ShoppingIBasketItem> basketItems;
+	private List<ShoppingBasketItem> shoppingBasketItem;
 	
 }
