@@ -14,6 +14,13 @@ public class ShoppingBasketItem {
 	private Integer quantity;
 	
 	private GoodItem item;
+
+	@Override
+	public String toString() {
+		return new StringBuffer("").append(this.quantity).append(item.toString()).toString();
+	}
+	
+	
 	
 	
 }

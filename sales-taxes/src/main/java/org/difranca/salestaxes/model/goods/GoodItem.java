@@ -9,12 +9,17 @@ import lombok.Setter;
 @Setter
 public class GoodItem {
 
-
 	private GoodCategory category;
 	
 	private String description;
 	
 	private BigDecimal unityPrice; 
 	
+	private Boolean imported;
+	
+	@Override
+	public String toString() {
+		return new StringBuilder(this.imported ? " imported ": " ").append(description).append(" at ").append(this.unityPrice).toString();
+	}
 	
 }
