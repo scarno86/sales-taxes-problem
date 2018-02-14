@@ -32,9 +32,9 @@ public class TaxSalesTestCases {
 	@DataProvider
 	public static Object[][] createShoppingBasket() {
 		return new Object[][] {
-					{1l, new Receipt(1l, "Receipt 1",null, new BigDecimal("1.50"), new BigDecimal("42.32")) },
-					{2l, new Receipt(2l, "Receipt 2",null, new BigDecimal("7.65"), new BigDecimal("65.15")) },
-					{3l, new Receipt(3l, "Receipt 3",null, new BigDecimal("7.90"), new BigDecimal("98.38")) },
+					{1L, MockUtils.createReceipt.apply(1L) },
+					//{2L, MockUtils.createReceipt.apply(2)   },
+					//{3L, MockUtils.createReceipt.apply(3L)  },
 				};
 	}
 

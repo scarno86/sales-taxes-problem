@@ -2,11 +2,13 @@ package org.difranca.salestaxes.model.goods;
 
 import java.math.BigDecimal;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class GoodItem {
 
 	private GoodCategory category;
