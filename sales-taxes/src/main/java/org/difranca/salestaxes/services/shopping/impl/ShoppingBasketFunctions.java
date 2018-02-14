@@ -1,4 +1,4 @@
-package org.difranca.salestaxes.services.shopping;
+package org.difranca.salestaxes.services.shopping.impl;
 
 import java.math.BigDecimal;
 import java.util.function.Function;
