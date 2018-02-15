@@ -21,7 +21,7 @@ public class GoodItem {
 	
 	@Override
 	public String toString() {
-		return new StringBuilder(this.imported ? " imported ": " ").append(description).append(" at ").append(this.unityPrice).toString();
+		return new StringBuilder(this.imported ? " imported ": " ").append(description).append(": ").toString();
 	}
 	
 }

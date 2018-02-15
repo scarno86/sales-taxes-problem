@@ -28,10 +28,10 @@ public class Receipt {
 	public String toString() {
 		
 		StringBuilder builder = new StringBuilder("Output ");
-		builder.append(this.getIdShoppingBasket());
-		this.receiptDetails.stream().forEach(receiptItem -> builder.append(receiptItem).toString());
+		builder.append(this.getIdShoppingBasket().toString()+"\n");
+		this.receiptDetails.stream().forEach(receiptItem -> builder.append(receiptItem.toString()));
 		builder.append("Sales Taxes: "+this.getSalesTaxes());
-		builder.append("Total: "+this.getTotal());
+		builder.append("\nTotal: "+this.getTotal());
 		return  builder.toString();
 	}
 

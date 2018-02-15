@@ -5,16 +5,15 @@
     </Properties>
     <Appenders>
         <!-- File Appender -->
-        <File name="FILE" fileName="${basePath}/logfile.log" append="true">
+        <File name="FILE" fileName="${basePath}/sales-tax-problem.log" append="true">
             <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n" />
         </File>
         <!-- Console Appender -->
         <Console name="STDOUT" target="SYSTEM_OUT">
-            <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n" />
+            <PatternLayout pattern="%m%n" />
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="com.jcg" level="debug" />
         <Root level="info">
             <AppenderRef ref="STDOUT" />
             <AppenderRef ref="FILE" />

@@ -21,7 +21,7 @@ public class ReceiptService implements IReceiptService {
 	public Receipt calculateReceipt(ShoppingBasket shoppingBasket) {
 		
 		Long idShoppingBasket  = shoppingBasket.getIdBasket();
-		String description = shoppingBasket.getDescription();
+		String description =  new StringBuilder("Output ").append(idShoppingBasket).toString();
 		
 		List<ReceiptItem> receiptItems = shoppingBasket.getShoppingBasketItem().stream()//
 					  .map(shoppingBasketItem -> ReceiptFunctions.basketItemToReceiptItem.apply(shoppingBasketItem, salesTaxStrategyContext))//

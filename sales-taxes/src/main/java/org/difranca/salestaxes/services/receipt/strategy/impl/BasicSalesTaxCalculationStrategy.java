@@ -6,7 +6,7 @@ import org.difranca.salestaxes.services.receipt.strategy.ISalesTaxCalculationStr
 
 public class BasicSalesTaxCalculationStrategy implements ISalesTaxCalculationStrategy {
 
-	private static final BigDecimal BASIC_TAX_RATE = new BigDecimal("0.10");
+	private static final BigDecimal BASIC_TAX_RATE = new BigDecimal("0.1");
 	
 	@Override
 	public BigDecimal calculateSalesTax(BigDecimal totalShoppingPrice) {
