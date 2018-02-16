@@ -57,9 +57,9 @@ public class MockUtils {
 	private static final Map<Long, List<ReceiptItem>> receiptItemMaps = new HashMap<>();
 	static {
 		receiptItemMaps.put(1l,
-				Lists.newArrayList(new ReceiptItem(new ShoppingBasketItem(2, BOOK), new BigDecimal("0.00")),
+				Lists.newArrayList(new ReceiptItem(new ShoppingBasketItem(2, BOOK),BigDecimal.ZERO),
 						new ReceiptItem(new ShoppingBasketItem(1, MUSIC), new BigDecimal("1.50")),
-						new ReceiptItem(new ShoppingBasketItem(1, CHOCOLATE), new BigDecimal("0.00"))));
+						new ReceiptItem(new ShoppingBasketItem(1, CHOCOLATE),BigDecimal.ZERO)));
 
 		receiptItemMaps.put(2l, Lists.newArrayList(
 				new ReceiptItem(new ShoppingBasketItem(1, BOX_CHOCOLATE_IMPORTED), new BigDecimal("0.50")),
@@ -69,8 +69,8 @@ public class MockUtils {
 				Lists.newArrayList(
 						new ReceiptItem(new ShoppingBasketItem(1, BOTTLE_PERFUME_IMPORTED_2), new BigDecimal("4.20")),
 						new ReceiptItem(new ShoppingBasketItem(1, BOTTLE_PERFUME), new BigDecimal("1.90")),
-						new ReceiptItem(new ShoppingBasketItem(1, PACKET_HEADACHE_PILLS), new BigDecimal("0.00")),
-						new ReceiptItem(new ShoppingBasketItem(3, CHOCOLATE_IMPORTED), new BigDecimal("1.70"))));
+						new ReceiptItem(new ShoppingBasketItem(1, PACKET_HEADACHE_PILLS), BigDecimal.ZERO),
+						new ReceiptItem(new ShoppingBasketItem(3, CHOCOLATE_IMPORTED), new BigDecimal("1.80"))));
 
 	}
 
