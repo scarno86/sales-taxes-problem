@@ -14,13 +14,13 @@ public class ReceiptFunctions {
 
 	public static BiFunction<ShoppingBasketItem, SalesTaxStrategyContext, ReceiptItem> basketItemToReceiptItem = (
 			shoppingBasketItem, salesTaxStrategyContext) -> {
-																BigDecimal salesTaxes = salesTaxStrategyContext.executeStrategy(shoppingBasketItem);
-																
-																//apply rounding
-																BigDecimal roundedTotalSalesTaxes = SalesTaxFunctions.roundingOff.apply(salesTaxes);
-																
-																return new ReceiptItem(shoppingBasketItem, roundedTotalSalesTaxes);
-															};
+		BigDecimal salesTaxes = salesTaxStrategyContext.executeStrategy(shoppingBasketItem);
+
+		// apply rounding
+		BigDecimal roundedTotalSalesTaxes = SalesTaxFunctions.roundingOff.apply(salesTaxes);
+
+		return new ReceiptItem(shoppingBasketItem, roundedTotalSalesTaxes);
+	};
 
 	public static Function<ReceiptItem, BigDecimal> calculateTotalPriceItemByReceiptItem = receiptItem -> ShoppingBasketFunctions.calculateTotalShoppingPriceItem
 			.apply(receiptItem.getItemBasket()).add(receiptItem.getSalesTax());

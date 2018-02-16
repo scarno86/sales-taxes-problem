@@ -14,29 +14,30 @@ import org.difranca.salestaxes.services.receipt.strategy.SalesTaxStrategyContext
 public class ReceiptService implements IReceiptService {
 
 	private static final Logger log = LogManager.getLogger(ReceiptService.class);
-	
+
 	private SalesTaxStrategyContext salesTaxStrategyContext = new SalesTaxStrategyContext();
-	
+
 	@Override
 	public Receipt calculateReceipt(ShoppingBasket shoppingBasket) {
-		
-		Long idShoppingBasket  = shoppingBasket.getIdBasket();
-		String description =  new StringBuilder("Output ").append(idShoppingBasket).toString();
-		
+
+		Long idShoppingBasket = shoppingBasket.getIdBasket();
+		String description = new StringBuilder("Output ").append(idShoppingBasket).toString();
+
 		List<ReceiptItem> receiptItems = shoppingBasket.getShoppingBasketItem().stream()//
-					  .map(shoppingBasketItem -> ReceiptFunctions.basketItemToReceiptItem.apply(shoppingBasketItem, salesTaxStrategyContext))//
-					  .collect(Collectors.toList());
-		
+				.map(shoppingBasketItem -> ReceiptFunctions.basketItemToReceiptItem.apply(shoppingBasketItem,
+						salesTaxStrategyContext))//
+				.collect(Collectors.toList());
+
 		BigDecimal salesTax = receiptItems.stream()//
-									.map(receiptItem -> receiptItem.getSalesTax())//
-								    .reduce(BigDecimal.ZERO, BigDecimal::add);
-		
+				.map(receiptItem -> receiptItem.getSalesTax())//
+				.reduce(BigDecimal.ZERO, BigDecimal::add);
+
 		BigDecimal totalPrice = receiptItems.stream()//
-								.map(receiptItem -> ReceiptFunctions.calculateTotalPriceItemByReceiptItem.apply(receiptItem))//
-							    .reduce(BigDecimal.ZERO, BigDecimal::add);
-		
+				.map(receiptItem -> ReceiptFunctions.calculateTotalPriceItemByReceiptItem.apply(receiptItem))//
+				.reduce(BigDecimal.ZERO, BigDecimal::add);
+
 		return new Receipt(idShoppingBasket, description, receiptItems, salesTax, totalPrice);
-		
+
 	}
 
 	@Override

@@ -16,8 +16,9 @@ public class SalesTaxFunctions {
 
 		log.debug("valueToRound  {} ", valueToRound);
 
-		BigDecimal roundedValue = new BigDecimal(Math.ceil(valueToRound.divide(ROUND_OFF_RATE).doubleValue())).multiply(ROUND_OFF_RATE);
-		
+		BigDecimal roundedValue = new BigDecimal(Math.ceil(valueToRound.divide(ROUND_OFF_RATE).doubleValue()))
+				.multiply(ROUND_OFF_RATE);
+
 		log.debug("roundeValue  {} ", roundedValue);
 
 		return roundedValue;

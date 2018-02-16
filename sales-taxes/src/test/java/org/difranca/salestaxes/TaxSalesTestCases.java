@@ -20,9 +20,9 @@ import com.tngtech.java.junit.dataprovider.UseDataProvider;
 @RunWith(DataProviderRunner.class)
 public class TaxSalesTestCases {
 
-	private IReceiptService receiptService  = new ReceiptService();
+	private IReceiptService receiptService = new ReceiptService();
 	private IShoppingBasketService shoppingService = new ShoppingBasketService();
-	
+
 	@Before
 	public void initMock() {
 		MockUtils.mockShoppingBasketService();
@@ -30,28 +30,27 @@ public class TaxSalesTestCases {
 
 	@DataProvider
 	public static Object[][] createShoppingBasket() {
-		return new Object[][] {
-					{1L, MockUtils.createReceipt.apply(1L) },
-					//{2L, MockUtils.createReceipt.apply(2)   },
-					//{3L, MockUtils.createReceipt.apply(3L)  },
-				};
+		return new Object[][] { { 1l, MockUtils.createReceipt.apply(1l) }, { 2l, MockUtils.createReceipt.apply(2l) },
+				{ 3l, MockUtils.createReceipt.apply(3l) }, };
 	}
 
 	@Test
-	@UseDataProvider(value="createShoppingBasket")
+	@UseDataProvider(value = "createShoppingBasket")
 	public void testReceiptDetails(Long idShoppingBasket, Receipt receiptExpected) {
-		
-		//load  shoppingBasket
+
+		// load shoppingBasket
 		ShoppingBasket shoppingBasket = shoppingService.loadBasketByIdBasket(idShoppingBasket);
 		assertThat(shoppingBasket).as("Shopping Basket not null").isNotNull();
-		
+
 		Receipt calculatedReceipt = receiptService.calculateReceipt(shoppingBasket);
 		assertThat(calculatedReceipt).as("Calculated Receipt is not null").isNotNull();
-		
-		//n.b...comparing objects fields to fields because toEquals method has not been overriden
-		assertThat(calculatedReceipt).as("Calculated Receipt is equals to Expected").isEqualToComparingFieldByFieldRecursively(receiptExpected);
-		
-		//Print receipt details
+
+		// n.b...comparing objects fields to fields because toEquals method has not been
+		// overriden
+		assertThat(calculatedReceipt).as("Calculated Receipt is equals to Expected")
+				.isEqualToComparingFieldByFieldRecursively(receiptExpected);
+
+		// Print receipt details
 		receiptService.printReceipt(calculatedReceipt);
 	}
 

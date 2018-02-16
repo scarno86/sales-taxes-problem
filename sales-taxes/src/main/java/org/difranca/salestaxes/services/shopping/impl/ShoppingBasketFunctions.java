@@ -7,9 +7,7 @@ import org.difranca.salestaxes.model.shopping.ShoppingBasketItem;
 
 public class ShoppingBasketFunctions {
 
-	
-	
-	public static Function<ShoppingBasketItem, BigDecimal> calculateTotalShoppingPriceItem = shoppingBasketItem -> shoppingBasketItem.getItem().getUnityPrice().multiply(new BigDecimal(shoppingBasketItem.getQuantity()));
-	
-	
+	public static Function<ShoppingBasketItem, BigDecimal> calculateTotalShoppingPriceItem = shoppingBasketItem -> shoppingBasketItem
+			.getItem().getUnityPrice().multiply(new BigDecimal(shoppingBasketItem.getQuantity()));
+
 }

@@ -4,6 +4,6 @@ import java.math.BigDecimal;
 
 public interface ISalesTaxCalculationStrategy {
 
-	 BigDecimal calculateSalesTax(BigDecimal totalShoppingPrice);
-	
+	BigDecimal calculateSalesTax(BigDecimal totalShoppingPrice);
+
 }

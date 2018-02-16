@@ -12,9 +12,9 @@ import lombok.Setter;
 public class ShoppingBasket {
 
 	private Long idBasket;
-	
+
 	private String description;
-	
+
 	private List<ShoppingBasketItem> shoppingBasketItem;
-	
+
 }

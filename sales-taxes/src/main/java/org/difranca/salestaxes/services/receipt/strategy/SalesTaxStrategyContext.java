@@ -74,9 +74,11 @@ public class SalesTaxStrategyContext {
 	public BigDecimal executeStrategy(ShoppingBasketItem shoppingBasketItem) {
 
 		// calculate shopping price for good item
-		BigDecimal totalShoppingPrice = ShoppingBasketFunctions.calculateTotalShoppingPriceItem.apply(shoppingBasketItem);
+		BigDecimal totalShoppingPrice = ShoppingBasketFunctions.calculateTotalShoppingPriceItem
+				.apply(shoppingBasketItem);
 
-		List<ISalesTaxCalculationStrategy> salesTaxCalculationStrategies = getStrategiesByGoodItem(shoppingBasketItem.getItem());
+		List<ISalesTaxCalculationStrategy> salesTaxCalculationStrategies = getStrategiesByGoodItem(
+				shoppingBasketItem.getItem());
 
 		BigDecimal salesTax = applyAllSalesTaxCalculationStrategies(salesTaxCalculationStrategies, totalShoppingPrice);
 
