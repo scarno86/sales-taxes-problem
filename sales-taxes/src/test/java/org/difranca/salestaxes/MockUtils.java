@@ -18,9 +18,19 @@ import org.difranca.salestaxes.services.shopping.impl.ShoppingBasketService;
 
 public class MockUtils {
 
-	private static final GoodItem BOOK = new GoodItem(GoodCategory.BOOK," book ", new BigDecimal("12.49"), false);
-	private static final GoodItem MUSIC = new GoodItem(GoodCategory.GENERIC," music CD ", new BigDecimal("14.99"), false);
-	private static final GoodItem CHOCOLATE = new GoodItem(GoodCategory.FOOD," chocolate bar ", new BigDecimal("0.85"), false);
+	private static final GoodItem BOOK = new GoodItem(GoodCategory.BOOK,"book", new BigDecimal("12.49"), false);
+	private static final GoodItem MUSIC = new GoodItem(GoodCategory.GENERIC,"music CD", new BigDecimal("14.99"), false);
+	private static final GoodItem CHOCOLATE = new GoodItem(GoodCategory.FOOD,"chocolate bar", new BigDecimal("0.85"), false);
+	
+	private static final GoodItem BOX_CHOCOLATE = new GoodItem(GoodCategory.FOOD,"box of chocolates", new BigDecimal("10.00"), TRUE);
+	private static final GoodItem BOTTLE_PERFUME_IMPORTED_1 = new GoodItem(GoodCategory.GENERIC,"bottle of perfume", new BigDecimal("47.50"), TRUE);
+	
+	private static final GoodItem BOTTLE_PERFUME_IMPORTED_2 = new GoodItem(GoodCategory.GENERIC,"bottle of perfume", new BigDecimal("27.99"), TRUE);
+	private static final GoodItem BOTTLE_PERFUME = new GoodItem(GoodCategory.GENERIC,"bottle of perfume", new BigDecimal("18.99"), FALSE);
+	
+	
+	//1 packet of headache pills at 9.75
+	//3 box of imported chocolates at 11.25
 	
 	private static final Map<Long, List<ShoppingBasketItem>> basketItemMaps = new HashMap<>();
     static {
