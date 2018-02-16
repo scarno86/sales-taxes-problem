@@ -45,13 +45,15 @@ public class TaxSalesTestCases {
 		Receipt calculatedReceipt = receiptService.calculateReceipt(shoppingBasket);
 		assertThat(calculatedReceipt).as("Calculated Receipt is not null").isNotNull();
 
+		// Print receipt details
+		receiptService.printReceipt(calculatedReceipt);
+		
 		// n.b...comparing objects fields to fields because toEquals method has not been
 		// overriden
 		assertThat(calculatedReceipt).as("Calculated Receipt is equals to Expected")
 				.isEqualToComparingFieldByFieldRecursively(receiptExpected);
 
-		// Print receipt details
-		receiptService.printReceipt(calculatedReceipt);
+		
 	}
 
 }
